@@ -1,0 +1,57 @@
+@model IEnumerable<DevelopTest.Models.Reservation>
+
+<div class="page-header">
+    <div>
+        <h1 class="page-title">Reservations</h1>
+        <p class="page-subtitle">All bookings and time slots</p>
+    </div>
+    <a asp-action="Create" asp-controller="Reservation" class="btn-create">
+        + New Reservation
+    </a>
+</div>
+
+@if (TempData["message"] != null)
+{
+    <div class="alert-success-custom">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8l4 4 8-8"/></svg>
+        @TempData["message"]
+    </div>
+}
+
+<div class="data-table-wrap">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>User</th>
+                <th>Sport Area</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reservation in Model)
+            {
+                <tr>
+                    <td>@reservation.Id</td>
+                    <td><strong>@reservation.User.Name</strong></td>
+                    <td>@reservation.SportArea.Name</td>
+                    <td>@reservation.Date</td>
+                    <td>@reservation.StartTime – @reservation.EndTime</td>
+                    <td><span class="status-badge">@reservation.Status</span></td>
+                    <td>
+                        <div class="tbl-actions">
+                            <form asp-action="Destroy" asp-controller="Reservation" asp-route-id="@reservation.Id" method="post" style="display:contents;">
+                                <a asp-action="Show" asp-controller="Reservation" asp-route-id="@reservation.Id" class="tbl-action view">View</a>
+                                <a asp-action="Edit" asp-controller="Reservation" asp-route-id="@reservation.Id" class="tbl-action edit">Edit</a>
+                                <button type="submit" class="tbl-action danger">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

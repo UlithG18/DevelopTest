@@ -1,0 +1,55 @@
+@model IEnumerable<DevelopTest.Models.SportArea>
+
+<div class="page-header">
+    <div>
+        <h1 class="page-title">Sport Areas</h1>
+        <p class="page-subtitle">Courts, pools and facilities available</p>
+    </div>
+    <a asp-action="Create" asp-controller="SportArea" class="btn-create">
+        + New Sport Area
+    </a>
+</div>
+
+@if (TempData["message"] != null)
+{
+    <div class="alert-success-custom">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8l4 4 8-8"/></svg>
+        @TempData["message"]
+    </div>
+}
+
+<div class="data-table-wrap">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Schedule</th>
+                <th>Capacity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sportArea in Model)
+            {
+                <tr>
+                    <td>@sportArea.Id</td>
+                    <td><strong>@sportArea.Name</strong></td>
+                    <td>@sportArea.Type</td>
+                    <td>@sportArea.OpeningTime – @sportArea.ClosingTime</td>
+                    <td>@sportArea.Capacity</td>
+                    <td>
+                        <div class="tbl-actions">
+                            <form asp-action="Destroy" asp-controller="SportArea" asp-route-id="@sportArea.Id" method="post" style="display:contents;">
+                                <a asp-action="Show" asp-controller="SportArea" asp-route-id="@sportArea.Id" class="tbl-action view">View</a>
+                                <a asp-action="Edit" asp-controller="SportArea" asp-route-id="@sportArea.Id" class="tbl-action edit">Edit</a>
+                                <button type="submit" class="tbl-action danger">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

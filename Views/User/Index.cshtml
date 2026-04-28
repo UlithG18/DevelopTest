@@ -1,0 +1,55 @@
+@model IEnumerable<DevelopTest.Models.User>
+
+<div class="page-header">
+    <div>
+        <h1 class="page-title">Users</h1>
+        <p class="page-subtitle">All registered members of the club</p>
+    </div>
+    <a asp-action="Create" asp-controller="User" class="btn-create">
+        + New User
+    </a>
+</div>
+
+@if (TempData["message"] != null)
+{
+    <div class="alert-success-custom">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8l4 4 8-8"/></svg>
+        @TempData["message"]
+    </div>
+}
+
+<div class="data-table-wrap">
+    <table class="data-table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Document</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td><strong>@user.Name</strong></td>
+                <td>@user.Document</td>
+                <td>@user.Email</td>
+                <td>@user.Phone</td>
+                <td>
+                    <div class="tbl-actions">
+                        <form asp-action="Destroy" asp-controller="User" asp-route-id="@user.Id" method="post" style="display:contents;">
+                            <a asp-action="Show" asp-controller="User" asp-route-id="@user.Id" class="tbl-action view">View</a>
+                            <a asp-action="Edit" asp-controller="User" asp-route-id="@user.Id" class="tbl-action edit">Edit</a>
+                            <button type="submit" class="tbl-action danger">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

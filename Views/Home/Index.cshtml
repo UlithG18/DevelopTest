@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="landing-hero">
+    <span class="landing-badge">Sports Facility Management</span>
+    <h1>Manage your <em>SportHub</em><br>all in one place</h1>
+    <p class="landing-subtitle">
+        Register users, manage sport areas, and schedule reservations — simple, fast, and organized.
+    </p>
+</div>
+
+<div class="landing-cards">
+    <a asp-controller="User" asp-action="Index" class="landing-card card-users">
+        <div class="card-icon">👤</div>
+        <div class="card-title">Users</div>
+        <p class="card-desc">Register and manage club members. View profiles, contact info, and activity history.</p>
+        <span class="card-arrow">Go to Users →</span>
+    </a>
+
+    <a asp-controller="SportArea" asp-action="Index" class="landing-card card-areas">
+        <div class="card-icon">🏟️</div>
+        <div class="card-title">Sport Areas</div>
+        <p class="card-desc">Configure courts, pools, and fields. Set schedules, types, and capacity limits.</p>
+        <span class="card-arrow">Go to Sport Areas →</span>
+    </a>
+
+    <a asp-controller="Reservation" asp-action="Index" class="landing-card card-reservations">
+        <div class="card-icon">📅</div>
+        <div class="card-title">Reservations</div>
+        <p class="card-desc">Book time slots for users on any sport area. Track status and manage conflicts.</p>
+        <span class="card-arrow">Go to Reservations →</span>
+    </a>
+</div>

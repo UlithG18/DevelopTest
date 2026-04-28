@@ -1,0 +1,40 @@
+@model DevelopTest.Models.SportArea
+
+<div class="page-header">
+    <div>
+        <h1 class="page-title">Edit Sport Area</h1>
+        <p class="page-subtitle">Update facility information</p>
+    </div>
+</div>
+
+<div class="form-card">
+    <form asp-action="Update" asp-controller="SportArea" method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <label class="form-label" asp-for="Name">Name</label>
+            <input asp-for="Name" class="form-control" type="text" placeholder="e.g. Swimming Pool" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="Type">Type of Area</label>
+            <select asp-for="Type" class="form-control" asp-items="Html.GetEnumSelectList<AreaType>()">
+                <option value=""> Select Area Type </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="OpeningTime">Opening Time</label>
+            <input asp-for="OpeningTime" type="time" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="ClosingTime">Closing Time</label>
+            <input asp-for="ClosingTime" type="time" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="Capacity">Capacity</label>
+            <input asp-for="Capacity" type="number" class="form-control" />
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn-primary-custom">Update Sport Area</button>
+            <a asp-action="Index" asp-controller="SportArea" class="btn-ghost-custom">Cancel</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,41 @@
+@model DevelopTest.Models.Reservation
+
+<div class="page-header">
+    <div>
+        <h1 class="page-title">New Reservation</h1>
+        <p class="page-subtitle">Book a sport area for a member</p>
+    </div>
+</div>
+
+<div class="form-card">
+    <form asp-action="Store" asp-controller="Reservation" method="post">
+        <div class="mb-3">
+            <label class="form-label" asp-for="User.Name">User</label>
+            <select asp-for="UserId" asp-items="ViewBag.Users" class="form-control">
+                <option value=""> Select a User </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="SportArea.Name">Sport Area</label>
+            <select asp-for="SportAreaId" asp-items="ViewBag.SportArea" class="form-control">
+                <option value=""> Select a Sport Area </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="Date">Date</label>
+            <input asp-for="Date" type="date" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="StartTime">Start Time</label>
+            <input asp-for="StartTime" type="time" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label" asp-for="EndTime">End Time</label>
+            <input asp-for="EndTime" type="time" class="form-control" />
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn-primary-custom">Create Reservation</button>
+            <a asp-action="Index" asp-controller="Reservation" class="btn-ghost-custom">Cancel</a>
+        </div>
+    </form>
+</div>

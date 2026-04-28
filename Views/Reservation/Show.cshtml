@@ -1,0 +1,38 @@
+@model DevelopTest.Models.Reservation
+
+<div class="page-header">
+    <div>
+        <h1 class="page-title">Reservation Details</h1>
+        <p class="page-subtitle">Booking information</p>
+    </div>
+    <a asp-action="Edit" asp-controller="Reservation" asp-route-id="@Model.Id" class="btn-primary-custom">Edit</a>
+</div>
+
+<div class="detail-card">
+    <div class="detail-row">
+        <span class="detail-label">ID</span>
+        <span class="detail-value">@Model.Id</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">User</span>
+        <span class="detail-value">@Model.User.Name</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Sport Area</span>
+        <span class="detail-value">@Model.SportArea.Name</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Date</span>
+        <span class="detail-value">@Model.Date</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Time</span>
+        <span class="detail-value">@Model.StartTime – @Model.EndTime</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">Status</span>
+        <span class="detail-value"><span class="status-badge">@Model.Status</span></span>
+    </div>
+</div>
+
+<a asp-action="Index" asp-controller="Reservation" class="back-link">← Back to Reservations</a>
