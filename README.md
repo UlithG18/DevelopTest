@@ -177,5 +177,5 @@ The system enforces the following rules on every reservation operation:
 
 The following diagrams are included in the repository root:
 
-- `class-diagram.png` — Class diagram showing entities, attributes, methods, and relationships.
-- `use-case-diagram.png` — Use case diagram showing actors (User, Administrator, SMTP Server) and system interactions.
+- `class-diagram` — Class diagram showing entities, attributes, methods, and relationships.
+- `use-case-diagram` — Use case diagram showing actors (User, Administrator, SMTP Server) and system interactions.

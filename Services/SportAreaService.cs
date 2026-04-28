@@ -27,14 +27,6 @@ public class SportAreaService
     {
         try
         {
-            if (sportArea == null)
-            {
-                return new ServiceResponse<SportArea>()
-                {
-                    Success = false,
-                    Message = "Sport Area cannot be null"
-                };
-            }
 
             if (string.IsNullOrWhiteSpace(sportArea.Name) ||
                 sportArea.Type == null ||
@@ -120,14 +112,6 @@ public class SportAreaService
     {
         try
         {
-            if (sportArea == null)
-            {
-                return new ServiceResponse<SportArea>()
-                {
-                    Success = false,
-                    Message = "Sport Area cannot be null"
-                };
-            }
             
             var sportAreaDb = _context.SportAreas.Find(sportArea.Id);
             
