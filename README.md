@@ -108,8 +108,8 @@ Replace `YOUR_HOST`, `YOUR_USER`, and `YOUR_PASSWORD` with the appropriate value
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-cd YOUR_REPO
+git clone https://github.com/UlithG18/DevelopTest
+cd DevelopTest
 ```
 
 2. Restore dependencies:
